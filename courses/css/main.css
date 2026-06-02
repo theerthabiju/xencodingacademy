@@ -10540,7 +10540,7 @@ START: Feature CSS
 START: Page Header CSS
 ----------------------------------------*/
 .cta-section {
-  background-color: #161E27;
+  /* background-color: #161E27; */
   position: relative;
   z-index: 1;
 }
