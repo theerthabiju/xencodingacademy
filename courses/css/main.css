@@ -2337,7 +2337,6 @@ START: Header CSS
   position: relative;
   top: 0;
   left: 0;
-  width: 100%;
   z-index: 99;
   overflow-x: clip;
   box-shadow: 0px 1px 3px 0px rgba(17, 17, 17, 0);
@@ -2391,6 +2390,7 @@ START: Header CSS
     margin-right: 0;
     padding-right: 0;
     border: none;
+   
   }
 }
 
@@ -2467,6 +2467,7 @@ START: Header CSS
   .header .mid-header .mid-header-inner .category-form-wrap {
     width: 450px;
     margin-left: 0;
+    
   }
 }
 
@@ -3262,6 +3263,120 @@ START: Header CSS
   }
 }
 
+/* ── Tablet: ≤ 1024px ── */
+@media (max-width: 1024px) {
+  .header .top-bar .top-bar-inner .top-bar-left .top-bar-list li {
+    font-size: 13px;
+    padding: 6px 0;
+  }
+
+  .header .top-bar .top-bar-inner .top-bar-left .top-bar-list li:not(:last-of-type) {
+    margin-right: 14px;
+    padding-right: 14px;
+  }
+
+  .header .top-bar .top-bar-inner .top-bar-right .register-box {
+    font-size: 13px;
+  }
+
+  .header .mid-header .mid-header-inner {
+    padding: 14px 0;
+  }
+
+  .header .mid-header .mid-header-inner .header-logo img {
+    max-width: 160px;
+  }
+
+  .ed-primary-btn.header-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ── Small Tablet: ≤ 768px ── */
+@media (max-width: 768px) {
+  /* Hide address in top bar to save space */
+  .header .top-bar .top-bar-inner .top-bar-left .top-bar-list li:last-child {
+    display: none;
+  }
+
+  .header .top-bar .top-bar-inner .top-bar-left .top-bar-list li:not(:last-of-type) {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+  }
+
+  .header .top-bar .top-bar-inner {
+    justify-content: center;
+    text-align: center;
+    row-gap: 4px;
+  }
+
+  .header .mid-header .mid-header-inner {
+    padding: 12px 0;
+    gap: 12px;
+  }
+
+  .header .mid-header .mid-header-inner .header-logo img {
+    max-width: 140px;
+  }
+
+  .header .mid-header .mid-header-inner .mid-header-right {
+    gap: 10px;
+  }
+
+  .ed-primary-btn.header-btn {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ── Mobile: ≤ 640px ── */
+@media (max-width: 640px) {
+  /* Collapse top bar entirely */
+  .header .top-bar {
+    display: none;
+  }
+
+  .header .mid-header .mid-header-inner {
+    padding: 12px 0;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .header .mid-header .mid-header-inner .header-logo img {
+    max-width: 120px;
+  }
+
+  .header .mid-header .mid-header-inner .mid-header-right {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  /* Hide "Other Courses" button, keep only "Let's Talk" */
+  .header .mid-header .mid-header-inner .mid-header-right > div.mid-header-right {
+    display: none;
+  }
+
+  .ed-primary-btn.header-btn {
+    padding: 9px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
+
+/* ── Extra Small: ≤ 380px ── */
+@media (max-width: 380px) {
+  .header .mid-header .mid-header-inner .header-logo img {
+    max-width: 60px;
+  }
+
+  .ed-primary-btn.header-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
 .header-1 .primary-header .primary-header-inner .header-right-btn {
   display: none;
 }
@@ -37057,7 +37172,6 @@ header.header {
     padding: 18px;
   }
 }
-
 /* ── Learn Section ── */
 .learn-section {
   background: #faf9f4;
@@ -37118,6 +37232,76 @@ header.header {
   margin: 0;
 }
 
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .learn-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .learn-card {
+    padding: 30px 26px;
+  }
+
+  .learn-card-title {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .learn-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .learn-card {
+    padding: 26px 22px;
+    border-radius: 14px;
+    /* Show top bar permanently on mobile — no hover available */
+    padding-top: 30px;
+  }
+
+  .learn-card::before {
+    transform: scaleX(1);
+    opacity: 0.45;
+  }
+
+  /* Disable hover lift on touch */
+  .learn-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .learn-card-title {
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+
+  .learn-card p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 380px) {
+  .learn-grid {
+    gap: 12px;
+  }
+
+  .learn-card {
+    padding: 22px 18px;
+    border-radius: 12px;
+  }
+
+  .learn-card-title {
+    font-size: 16px;
+  }
+
+  .learn-card p {
+    font-size: 13.5px;
+  }
+}
 
 /* ── Different Section ── */
 .different-grid {
@@ -37141,9 +37325,7 @@ header.header {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,
-      rgba(56, 87, 162, 0.03),
-      transparent);
+  background: linear-gradient(135deg, rgba(56, 87, 162, 0.03), transparent);
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -37206,6 +37388,91 @@ header.header {
   z-index: 2;
 }
 
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .different-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 36px;
+  }
+
+  .different-card {
+    padding: 28px 26px;
+  }
+
+  .different-card-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .different-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .different-card {
+    padding: 24px 22px;
+    border-radius: 14px;
+  }
+
+  /* Disable hover lift on touch devices */
+  .different-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .different-card:hover .different-icon {
+    transform: none;
+  }
+
+  .different-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
+    margin-bottom: 16px;
+  }
+
+  .different-icon i {
+    font-size: 21px;
+  }
+
+  .different-card-title {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .different-card p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 380px) {
+  .different-card {
+    padding: 20px 18px;
+    border-radius: 12px;
+  }
+
+  .different-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 11px;
+  }
+
+  .different-icon i {
+    font-size: 19px;
+  }
+
+  .different-card-title {
+    font-size: 16px;
+  }
+
+  .different-card p {
+    font-size: 13.5px;
+  }
+}
 /* ── Internship Section ── */
 .internship-grid {
   display: grid;
@@ -37250,6 +37517,59 @@ header.header {
   font-size: 17px;
   font-weight: 600;
   color: #0f0f1a;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .internship-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .internship-item {
+    padding: 20px 22px;
+  }
+
+  .internship-label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .internship-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .internship-item {
+    padding: 16px 18px;
+    gap: 14px;
+    border-radius: 10px;
+  }
+
+  .internship-num {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .internship-label {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .internship-item {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .internship-label {
+    font-size: 14px;
+  }
 }
 
 .opportunities-desc {
@@ -37336,8 +37656,8 @@ header.header {
 }
 
 .about-ex-6-thumb img {
-  width: 500%;
-  max-width: 650px;
+  width: 100%;
+  /* max-width: 650px; */
   /* increase this as needed */
   height: auto;
   transform: scale(1.1);
