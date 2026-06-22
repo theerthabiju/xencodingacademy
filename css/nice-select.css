@@ -2,7 +2,7 @@
     position: relative;
     display: block;
     -webkit-tap-highlight-color: transparent;
-    background-color: #f6f4f9;
+    background-color: #ffffff;
     border-radius: 0px;
     border: 0px solid #e4e4e4;
     box-sizing: border-box;
@@ -13,7 +13,7 @@
     color: #888888;
     font-size: 14px;
     font-weight: 300;
-    height: 70px;
+    height: 45px;
     line-height: 48px;
     outline: none;
     padding-left: 25px;

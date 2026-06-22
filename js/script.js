@@ -1750,3 +1750,109 @@ if ($(".slider-bg-slide").length) {
 
 
 })(jQuery);
+
+
+
+// ============================================
+// MODAL JAVASCRIPT ====
+
+(function() {
+    'use strict';
+
+    // Initialize modal functionality
+    function initializeModal() {
+        const modal = document.getElementById('formModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const form = document.getElementById('quoteForm');
+
+        if (!modal) {
+            console.error('Modal not found!');
+            return;
+        }
+
+        // USE EVENT DELEGATION - Works on all buttons, including sticky header
+        document.addEventListener('click', function(e) {
+            // Check if ANY clicked element or its parent has id="openModalBtn"
+            let button = e.target;
+            
+            // Check if it's the button itself or a child of the button
+            if (button.id === 'openModalBtn' || button.closest('[id="openModalBtn"]')) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                console.log('✅ Modal opened from button click');
+            }
+        });
+
+        // Close modal function
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            console.log('✅ Modal closed');
+        }
+
+        // Close button click
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeModal();
+            });
+        }
+
+        // Close on background click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+
+        // Form submission
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    qualification: document.getElementById('qualification').value,
+                    course: document.getElementById('course').value,
+                    dob: document.getElementById('dob').value,
+                    location: document.getElementById('location').value
+                };
+
+                console.log('📋 Form submitted:', formData);
+                
+              
+                
+                alert('Thank you ' + formData.name + '! We will contact you soon.');
+                form.reset();
+                
+                // Close modal
+                setTimeout(function() {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }, 500);
+            });
+        }
+
+        console.log('🚀 Modal initialized successfully with sticky header support');
+    }
+
+    // Run when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeModal);
+    } else {
+        initializeModal();
+    }
+})();
