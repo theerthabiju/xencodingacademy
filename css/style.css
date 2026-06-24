@@ -20451,13 +20451,114 @@ History Page
     transform: translateY(0);
 }
 
-@media (max-width: 600px) {
-    .modal-content {
-        padding: 30px 20px;
-        width: 95%;
+
+
+ 
+
+
+
+/* gallery css */
+
+ .xen-gallery {
+    background: #f8fbff;
+}
+
+.gallery-tag {
+    color: #0b6eda;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.gallery-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #111;
+    margin-top: 10px;
+}
+
+.gallery-desc {
+    max-width: 700px;
+    margin: auto;
+    color: #666;
+}
+
+.gallery-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    height: 364px;
+    cursor: pointer;
+}
+
+.gallery-card.large {
+    height: 364px;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(11,110,218,.95),
+        rgba(11,110,218,.1)
+    );
+    display: flex;
+    align-items: end;
+    padding: 30px;
+    opacity: 0;
+    transition: .4s;
+}
+
+.gallery-overlay h4 {
+    color: white;
+    margin: 0;
+    font-size: 22px;
+    transform: translateY(30px);
+    transition: .4s;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-card:hover .gallery-overlay h4 {
+    transform: translateY(0);
+}
+
+.gallery-btn {
+    background: #0b6eda;
+    color: #fff;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: .3s;
+}
+
+.gallery-btn:hover {
+    background: #084fa0;
+    color: white;
+}
+
+@media(max-width:768px){
+
+    .gallery-title{
+        font-size:32px;
     }
 
-    .modal-title {
-        font-size: 24px;
+    .gallery-card.large{
+        height:320px;
     }
 }

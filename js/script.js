@@ -1761,7 +1761,7 @@ if ($(".slider-bg-slide").length) {
 
     // Initialize modal functionality
     function initializeModal() {
-        const modal = document.getElementById('formModal');
+        const modal = document.getElementById('formModal' );
         const closeModalBtn = document.getElementById('closeModalBtn');
         const form = document.getElementById('quoteForm');
 
